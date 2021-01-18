@@ -16,3 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::view('/dashboard', 'admin.index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// admin route
+Route::group(['prefix' => 'admin', 'middleware'=>['auth']], 
+    function() {
+        Route::get('/',function(){
+            return view('admin.index');
+        });
+        Route::get('/provinsi',function(){
+            return view('admin.provinsi.index');
+        });
+    });
