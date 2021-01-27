@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProvinsiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +27,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware'=>['auth']], 
     function() {
         Route::get('/',function(){
-            return view('admin.index');
+            return view('layouts.master');
         });
-        Route::get('/provinsi',function(){
-            return view('admin.provinsi.index');
-        });
+        Route::resource('provinsi','ProvinsiController');
+        Route::resource('kota','KotaController');
+        Route::resource('kecamatan','KecamatanController');
+        Route::resource('kelurahan','KelurahanController');
+        Route::resource('rw','RwController');
+        Route::resource('tracking','TrackingController');
     });
+
+
+

@@ -12,7 +12,7 @@ class Rw extends Model
     public function kelurahan(){
         return $this->belongsTo('App\Kelurahan','id_kelurahan');
     }
-    public function tracking(){
-        return $this->hasMany('App\Tracking','id_rw');
+    public function rw(){
+        return $this->hasMany('App\Tracking','id_tracking');
     }
 }

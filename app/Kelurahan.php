@@ -9,10 +9,10 @@ class Kelurahan extends Model
     //
     protected $fillable = ['id_kecamatan','nama_kelurahan'];
     public $timestamps = true;
-    public function kelurahan(){
-        return $this->belongsTo('App\Kelurahan','id_provinsi');
+    public function kecamatan(){
+        return $this->belongsTo('App\Kecamatan','id_kecamatan');
     }
-    public function rw(){
-        return $this->belongsTo('App\Kelurahan','id_provinsi');
+    public function kelurahan(){
+        return $this->hasMany('App\Rw','id_rw');
     }
 }
