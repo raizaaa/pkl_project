@@ -18,12 +18,12 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" id="datatable">
-                            <thead>
+                        <table class="table table-bordered" id="datatable">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Id Kecamatan</th>
-                                    <th>Nama Kelurahan</th>
+                                    <th>id Kecamatan</th>
+                                    <th>Kelurahan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -31,10 +31,10 @@
                             @php $no=1; @endphp
                                 @foreach($kelurahan as $data)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$data->kecamatan->id}}</td>
-                                    <td>{{$data->nama_kelurahan}}</td>
-                                    <td>
+                                    <td align="center">{{$no++}}</td>
+                                    <td align="center">{{$data->kecamatan->id}}</td>
+                                    <td align="center">{{$data->nama_kelurahan}}</td>
+                                    <td align="center">
                                         <form action="{{route('kelurahan.destroy',$data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -48,6 +48,7 @@
                                         ('Apakah anda yakin?')">
                                         <img src="https://img.icons8.com/metro/26/000000/trash.png"/>
                                         </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class TrackingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $tracking = Tracking::with('rw.kelurahan.kecamatan.kota.provinsi')->get();
@@ -20,26 +15,26 @@ class TrackingController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.tracking.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        $request->validate([
+            'jumlah_positif' => 'required:trackings',
+            'jumlah_sembuh' => 'required:trackings',
+            'jumlah_meninggal' => 'required:trackings',
+            'tanggal' => 'required:trackings'
+        ], [
+            'jumlah_positif.required' => 'Jumlah pasien sembuh harus diisi',
+            'jumlah_sembuh.required' => 'Jumlah pasien sembuhharus diisi',
+            'jumlah_meninggal.required' => 'Jumlah pasien meninggal harus diisi',
+            'tanggal.required' => 'Tanggal harus diisi',
+        ]);
         $tracking = new Tracking;
-        $tracking -> nama = $request->nama;
+        $tracking -> id_rw = $request->id_rw;
         $tracking -> jumlah_positif = $request->jumlah_positif;
         $tracking -> jumlah_sembuh = $request->jumlah_sembuh;
         $tracking -> jumlah_meninggal = $request->jumlah_meninggal;
@@ -48,40 +43,22 @@ class TrackingController extends Controller
         return redirect()->route('tracking.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Tracking  $tracking
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tracking $tracking)
+    public function show($id)
     {
-        //
+        $tracking = Tracking::findOrFail($id);
+        return view('admin.tracking.show',compact('tracking'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tracking  $tracking
-     * @return \Illuminate\Http\Response
-     */
     public function edit( $id)
     {
         $tracking = Tracking::findOrFail($id);
         return view('admin.tracking.edit',compact('tracking'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tracking  $tracking
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request,  $id)
     {
         $tracking = Tracking::findOrFail($id);
-        $tracking -> nama = $request->nama;
+        $tracking -> id_rw = $request->id_rw;
         $tracking -> jumlah_positif = $request->jumlah_positif;
         $tracking -> jumlah_sembuh = $request->jumlah_sembuh;
         $tracking -> jumlah_meninggal = $request->jumlah_meninggal;
@@ -90,12 +67,6 @@ class TrackingController extends Controller
         return redirect()->route('tracking.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Tracking  $tracking
-     * @return \Illuminate\Http\Response
-     */
     public function destroy( $id)
     {
         $tracking = Tracking::findOrFail($id);

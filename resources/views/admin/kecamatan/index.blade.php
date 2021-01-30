@@ -18,13 +18,13 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" id="datatable">
-                            <thead>
+                        <table class="table table-bordered" id="datatable">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Id Kota</th>
+                                    <th>id Kota</th>
                                     <th>Kode Kecamatan</th>
-                                    <th>Nama Kecamatan</th>
+                                    <th>Kecamatan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -32,11 +32,11 @@
                             @php $no=1; @endphp
                                 @foreach($kecamatan as $data)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$data->kota->id}}</td>
-                                    <td>{{$data->kode_kecamatan}}</td>
-                                    <td>{{$data->nama_kecamatan}}</td>
-                                    <td>
+                                    <td align="center">{{$no++}}</td>
+                                    <td align="center">{{$data->kota->id}}</td>
+                                    <td align="center">{{$data->kode_kecamatan}}</td>
+                                    <td align="center">{{$data->nama_kecamatan}}</td>
+                                    <td align="center">
                                         <form action="{{route('kecamatan.destroy',$data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -50,6 +50,7 @@
                                         ('Apakah anda yakin?')">
                                         <img src="https://img.icons8.com/metro/26/000000/trash.png"/>
                                         </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

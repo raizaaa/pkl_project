@@ -1,20 +1,12 @@
 <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed;">
     <!-- Brand Logo -->
+    <center>
     <a href="#" class="brand-link">
-      <span class="brand-text font-weight-light">Tracking Covid</span>
+      <span class="brand-text font-weight-light"><b>Tracking Covid</b></span>
     </a>
-
+    </center>
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="https://img.icons8.com/ios/25/000000/user-male-circle.png"/>
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-        </div>
-      </div>
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -26,7 +18,6 @@
               <p>
                 Local
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">5</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -69,6 +60,18 @@
                 Tracking
               </p>
             </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        <img src="https://img.icons8.com/nolan/25/logout-rounded-left.png"/>
+        {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+        </form>
           </li>
       </nav>
       <!-- /.sidebar-menu -->

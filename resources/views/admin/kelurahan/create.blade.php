@@ -11,7 +11,7 @@
                     <form action="{{route('kelurahan.store')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="">Nama Kecamatan</label>
+                            <label for="">Kecamatan</label>
                             <select class="form-control" name="id_kecamatan" id="">
                                 @foreach($kecamatan as $data)
                                     <option value="{{$data->id}}">{{$data->nama_kecamatan}}</option>
@@ -19,8 +19,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Kelurahan</label>
-                            <input type="text" name="nama_kelurahan" class="form-control" required>  
+                            <label for="">Kelurahan</label>
+                            <input type="text" name="nama_kelurahan" class="form-control"> 
+                            @if($errors->has('nama_kelurahan'))
+                                <span class="text-danger">{{$errors->first('nama_kelurahan')}}</span>
+                            @endif 
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Simpan</button>

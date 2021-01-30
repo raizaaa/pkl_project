@@ -13,11 +13,11 @@
                             <input type="text" name="kode_provinsi" class="form-control" value="{{$provinsi->kode_provinsi}}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Provinsi</label>
+                            <label for="">Provinsi</label>
                             <input type="text" name="kode_provinsi" class="form-control" value="{{$provinsi->nama_provinsi}}" readonly>
                         </div>
                         <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-outline-primary btn-lg btn-block">Kembali</a>
+                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary btn-lg btn-block">Kembali</a>
                         </div>
                 </div>
             </div>

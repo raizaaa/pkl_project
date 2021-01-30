@@ -27,8 +27,17 @@ class RwController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'no_rw' => 'required|unique:rws'
+            ],
+            [
+                'no_rw.required' => 'No Rw harus diisi',
+                'no_rw.unique' => 'Rw telah terdaftar'
+            ]
+            );
         $rw = new Rw();
-        $rw->nama = $request->nama;
+        $rw->no_rw = $request->no_rw;
         $rw->id_kelurahan = $request->id_kelurahan;
         $rw->save();
         return redirect()->route('rw.index')
@@ -53,7 +62,7 @@ class RwController extends Controller
     public function update(Request $request, $id)
     {
         $rw = Rw::findOrFail($id);
-        $rw->nama = $request->nama;
+        $rw->no_rw = $request->no_rw;
         $rw->id_kelurahan = $request->id_kelurahan;
         $rw->save();
         return redirect()->route('rw.index')

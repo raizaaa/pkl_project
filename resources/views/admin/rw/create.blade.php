@@ -11,7 +11,7 @@
                     <form action="{{route('rw.store')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="">Nama Kelurahan</label>
+                            <label for="">Kelurahan</label>
                             <select class="form-control" name="id_kelurahan" id="">
                                 @foreach($kelurahan as $data)
                                     <option value="{{$data->id}}">{{$data->nama_kelurahan}}</option>
@@ -20,7 +20,10 @@
                         </div>
                         <div class="form-group">
                             <label for="">Rw</label>
-                            <input type="text" name="nama" class="form-control" required>  
+                            <input type="text" name="no_rw" class="form-control">  
+                            @if($errors->has('no_rw'))
+                                <span class="text-danger">{{$errors->first('no_rw')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Simpan</button>

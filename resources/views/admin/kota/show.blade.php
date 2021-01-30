@@ -17,11 +17,11 @@
                             <input type="text" name="kode_kota" class="form-control" value="{{$kota->kode_kota}}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Kota</label>
+                            <label for="">Kota</label>
                             <input type="text" name="nama_kota" class="form-control" value="{{$kota->nama_kota}}" readonly>  
                         </div>
                         <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-outline-primary btn-lg btn-block">Kembali</a>
+                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary btn-lg btn-block">Kembali</a>
                         </div>
                 </div>
             </div>

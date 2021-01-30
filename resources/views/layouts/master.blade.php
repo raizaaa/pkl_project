@@ -7,6 +7,7 @@
     <title>Tracking Covid || Dashboard</title>
 </head>
 <body>
+  @livewireStyles
     <!-- Navbar -->
     @include('include.navbar')
     <!-- /.Navbar -->
@@ -25,11 +26,11 @@
     </section>
     <!-- /.Content -->
     </div
-    
+  
     <!-- Javascript -->
     @include('include.js')
     <!-- /.Javascript -->
-      
+      @livewireScripts
 </script>
 </body>
 </html>

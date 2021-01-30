@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                         <div class="form-group">
-                            <label for="">Id Kota</label>
+                            <label for="">id Kota</label>
                             <input type="text" name="{{$kecamatan->kota->id}}" class="form-control" value="{{$kecamatan->kota->nama_kota}}" readonly>  
                         </div>
                         <div class="form-group">
@@ -17,11 +17,11 @@
                             <input type="text" name="kode_kecamatan" class="form-control" value="{{$kecamatan->kode_kecamatan}}" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Kecamatan</label>
+                            <label for="">Kecamatan</label>
                             <input type="text" name="nama_kecamatan" class="form-control" value="{{$kecamatan->nama_kecamatan}}" readonly>  
                         </div>
                         <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-outline-primary btn-lg btn-block">Kembali</a>
+                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary btn-lg btn-block">Kembali</a>
                         </div>
                 </div>
             </div>

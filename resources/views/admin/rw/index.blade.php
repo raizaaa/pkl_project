@@ -18,8 +18,8 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" id="datatable">
-                            <thead>
+                        <table class="table table-bordered" id="datatable">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>Nomor</th>
                                     <th>Id Kelurahan</th>
@@ -31,10 +31,10 @@
                             @php $no=1; @endphp
                                 @foreach($rw as $data)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$data->kelurahan->id}}</td>
-                                    <td>{{$data->nama}}</td>
-                                    <td>
+                                    <td align="center">{{$no++}}</td>
+                                    <td align="center">{{$data->kelurahan->id}}</td>
+                                    <td align="center">{{$data->no_rw}}</td>
+                                    <td align="center">
                                         <form action="{{route('rw.destroy',$data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -48,6 +48,7 @@
                                         ('Apakah anda yakin?')">
                                         <img src="https://img.icons8.com/metro/26/000000/trash.png"/>
                                         </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -5,7 +5,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    Tambah Data kecamatan
+                    Data kecamatan
                 </div>
                 <div class="card-body">
                     <form action="{{route('kecamatan.update',$kecamatan->id)}}" method="post">
@@ -13,7 +13,7 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="">Id Kota</label>
+                            <label for="">Kota</label>
                             <select name="id_kota" class="form-control">
                             @foreach($kota as $data)
                             <option value="{{$data->id}}"
@@ -26,14 +26,11 @@
                             <input type="text" name="kode_kecamatan" class="form-control" value="{{$kecamatan->kode_kecamatan}}" required>
                         </div>
                         <div class="form-group">
-                            <label for="">Nama kecamatan</label>
+                            <label for="">Kecamatan</label>
                             <input type="text" name="nama_kecamatan" class="form-control" value="{{$kecamatan->nama_kecamatan}}" required>  
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" onclick="return confirm('Apakah anda yakin?')">Simpan</button>
-                        </div>
-                        <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary btn-lg btn-block">Kembali</a>
                         </div>
                     </form>
                 </div>

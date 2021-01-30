@@ -18,12 +18,12 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" id="datatable">
-                            <thead>
+                        <table class="table table-bordered" id="datatable">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>Nomor</th>
                                     <th>Kode Provinsi</th>
-                                    <th>Nama Provinsi</th>
+                                    <th>Provinsi</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -31,10 +31,10 @@
                             @php $no=1; @endphp
                                 @foreach($provinsi as $data)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$data->kode_provinsi}}</td>
-                                    <td>{{$data->nama_provinsi}}</td>
-                                    <td>
+                                    <td align="center">{{$no++}}</td>
+                                    <td align="center">{{$data->kode_provinsi}}</td>
+                                    <td align="center">{{$data->nama_provinsi}}</td>
+                                    <td align="center">
                                         <form action="{{route('provinsi.destroy',$data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')

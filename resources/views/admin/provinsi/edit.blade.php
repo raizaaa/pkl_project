@@ -17,14 +17,11 @@
                             <input type="text" name="kode_provinsi" class="form-control" value="{{$provinsi->kode_provinsi}}" required>
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Provinsi</label>
+                            <label for="">Provinsi</label>
                             <input type="text" name="nama_provinsi" class="form-control" value="{{$provinsi->nama_provinsi}}" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" onclick="return confirm('Apakah anda yakin?')">Simpan</button>
-                        </div>
-                        <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary btn-lg btn-block">Kembali</a>
                         </div>
                     </form>
                 </div>

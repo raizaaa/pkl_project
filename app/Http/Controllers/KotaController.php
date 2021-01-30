@@ -27,6 +27,18 @@ class KotaController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'kode_kota' => 'required|unique:kotas',
+                'nama_kota' => 'required|unique:kotas',
+            ],
+            [
+                'kode_kota.required' => 'Kode kota harus diisi',
+                'kode_kota.unique' => 'Kode kota telah terdaftar',
+                'nama_kota.required' => 'kota harus diisi',
+                'nama_kota.unique' => 'kota telah terdaftar'
+            ]
+            );
         $kota = new Kota();
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;

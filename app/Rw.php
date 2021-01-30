@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rw extends Model
 {
     //
-    protected $fillable = ['id_kelurahan','nama'];
+    protected $fillable = ['id_kelurahan','no_rw'];
     public $timestamps = true;
     public function kelurahan(){
         return $this->belongsTo('App\Kelurahan','id_kelurahan');

@@ -13,11 +13,11 @@
                             <input type="text" name="{{$kelurahan->kecamatan->id}}" class="form-control" value="{{$kelurahan->kecamatan->nama_kecamatan}}" readonly>  
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Kelurahan</label>
+                            <label for="">Kelurahan</label>
                             <input type="text" name="nama_kelurahan" class="form-control" value="{{$kelurahan->nama_kelurahan}}" readonly>
                         </div>
                         <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-outline-primary btn-lg btn-block">Kembali</a>
+                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary btn-lg btn-block">Kembali</a>
                         </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="">Id Kelurahan</label>
+                            <label for="">id Kelurahan</label>
                             <select name="id_kelurahan" class="form-control">
                             @foreach($kelurahan as $data)
                             <option value="{{$data->id}}"
@@ -23,13 +23,10 @@
                         </div>
                         <div class="form-group">
                             <label for="">Rw</label>
-                            <input type="text" name="nama" class="form-control" value="{{$rw->nama}}" required>  
+                            <input type="text" name="no_rw" class="form-control" value="{{$rw->no_rw}}" required>  
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" onclick="return confirm('Apakah anda yakin?')">Simpan</button>
-                        </div>
-                        <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-outline-secondary btn-lg btn-block">Kembali</a>
                         </div>
                     </form>
                 </div>

@@ -51,6 +51,18 @@ class ProvinsiController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate(
+            [
+                'kode_provinsi' => 'required|unique:provinsis',
+                'nama_provinsi' => 'required|unique:provinsis',
+            ],
+            [
+                'kode_provinsi.required' => 'Kode provinsi harus diisi',
+                'kode_provinsi.unique' => 'Kode provinsi telah terdaftar',
+                'nama_provinsi.required' => 'Provinsi harus diisi',
+                'nama_provinsi.unique' => 'Provinsi telah terdaftar'
+            ]
+            );
         $provinsi = new Provinsi();
         $provinsi-> kode_provinsi = $request->kode_provinsi;
         $provinsi-> nama_provinsi = $request->nama_provinsi;
