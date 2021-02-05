@@ -14,11 +14,17 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Kode Provinsi</label>
-                            <input type="text" name="kode_provinsi" class="form-control" value="{{$provinsi->kode_provinsi}}" required>
+                            <input type="text" name="kode_provinsi" class="form-control" value="{{$provinsi->kode_provinsi}}">
+                            @if($errors->has('kode_provinsi'))
+                                <span class="text-danger">{{$errors->first('kode_provinsi')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Provinsi</label>
-                            <input type="text" name="nama_provinsi" class="form-control" value="{{$provinsi->nama_provinsi}}" required>
+                            <input type="text" name="nama_provinsi" class="form-control" value="{{$provinsi->nama_provinsi}}">
+                            @if($errors->has('nama_provinsi'))
+                                <span class="text-danger">{{$errors->first('nama_provinsi')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" onclick="return confirm('Apakah anda yakin?')">Simpan</button>

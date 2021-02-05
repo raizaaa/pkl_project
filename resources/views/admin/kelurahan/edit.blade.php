@@ -23,7 +23,10 @@
                         </div>
                         <div class="form-group">
                             <label for="">Kelurahan</label>
-                            <input type="text" name="nama_kelurahan" class="form-control" value="{{$kelurahan->nama_kelurahan}}" required>
+                            <input type="text" name="nama_kelurahan" class="form-control" value="{{$kelurahan->nama_kelurahan}}">
+                            @if($errors->has('nama_kelurahan'))
+                                <span class="text-danger">{{$errors->first('nama_kelurahan')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" onclick="return confirm('Apakah anda yakin?')">Simpan</button>

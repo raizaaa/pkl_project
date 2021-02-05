@@ -26,15 +26,6 @@
     </form> -->
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item ">
-        <a id="navbar" class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
-          <img src="https://img.icons8.com/ios/30/000000/user-male-circle.png"/>
-        {{ Auth::user()->name }} <span class="caret"></span>
-        </a>
-    </div>
-  </li>
-    </ul>
   </nav>
 
 

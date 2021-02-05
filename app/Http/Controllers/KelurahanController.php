@@ -29,12 +29,9 @@ class KelurahanController extends Controller
     {
         $request->validate(
             [
-                'kode_kelurahan' => 'required|unique:kelurahans',
                 'nama_kelurahan' => 'required|unique:kelurahans',
             ],
             [
-                'kode_kelurahan.required' => 'Kode kelurahan harus diisi',
-                'kode_kelurahan.unique' => 'Kode kelurahan telah terdaftar',
                 'nama_kelurahan.required' => 'kelurahan harus diisi',
                 'nama_kelurahan.unique' => 'kelurahan telah terdaftar'
             ]
@@ -64,6 +61,14 @@ class KelurahanController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'nama_kelurahan' => 'required:kelurahans'
+            ],
+            [
+                'nama_kelurahan.required' => 'kelurahan harus diisi'
+            ]
+            );
         $kelurahan = Kelurahan::findOrFail($id);
         $kelurahan->nama_kelurahan = $request->nama_kelurahan;
         $kelurahan->id_kecamatan = $request->id_kecamatan;

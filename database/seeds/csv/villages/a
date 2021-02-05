@@ -1,0 +1,36 @@
+
+    public function rw()
+    {
+        $positif = DB::table('rws')
+                 ->select('trackings.jumlah_positif',
+                 'trackings.jumlah_sembuh','trackings.jumlah_meninggal')
+                 ->join('trackings','rws.id','=','trackings.id_rw')
+                 ->sum('trackings.jumlah_positif');
+        $sembuh = DB::table('rws')
+                 ->select('trackings.jumlah_positif',
+                 'trackings.jumlah_sembuh','trackings.jumlah_meninggal')
+                 ->join('trackings','rws.id','=','trackings.id_rw')
+                 ->sum('trackings.jumlah_sembuh');
+        $meninggal = DB::table('rws')
+                   ->select('trackings.jumlah_positif',
+                   'trackings.jumlah_sembuh','trackings.jumlah_meninggal')
+                   ->join('trackings','rws.id','=','trackings.id_rw')
+                   ->sum('trackings.jumlah_sembuh');
+        $rw = DB::table('trackings')
+            ->select([
+            DB::raw('SUM(jumlah_positif) as positif'),
+            DB::raw('SUM(jumlah_sembuh) as sembuh'),
+            DB::raw('SUM(jumlah_meninggal) as meninggal'),
+            ])
+        ->groupBy('tanggal')->get();
+
+        return response([
+            'succes' => true,
+            'data' =>['hari ini' => $rw],
+                    'total' =>['Jumlah Positif' => $positif,
+                    'Jumlah Sembuh' => $sembuh,
+                    'Jumlah Meninggal' => $meninggal,
+                ],
+                    'message' => 'Berhasil'
+            ],200);
+    }

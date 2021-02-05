@@ -61,6 +61,14 @@ class RwController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'no_rw' => 'required:rws'
+            ],
+            [
+                'no_rw.required' => 'No Rw harus diisi',
+            ]
+            );
         $rw = Rw::findOrFail($id);
         $rw->no_rw = $request->no_rw;
         $rw->id_kelurahan = $request->id_kelurahan;

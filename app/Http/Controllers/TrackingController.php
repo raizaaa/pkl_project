@@ -57,6 +57,17 @@ class TrackingController extends Controller
 
     public function update(Request $request,  $id)
     {
+        $request->validate([
+            'jumlah_positif' => 'required:trackings',
+            'jumlah_sembuh' => 'required:trackings',
+            'jumlah_meninggal' => 'required:trackings',
+            'tanggal' => 'required:trackings'
+        ], [
+            'jumlah_positif.required' => 'Jumlah pasien sembuh harus diisi',
+            'jumlah_sembuh.required' => 'Jumlah pasien sembuhharus diisi',
+            'jumlah_meninggal.required' => 'Jumlah pasien meninggal harus diisi',
+            'tanggal.required' => 'Tanggal harus diisi',
+        ]);
         $tracking = Tracking::findOrFail($id);
         $tracking -> id_rw = $request->id_rw;
         $tracking -> jumlah_positif = $request->jumlah_positif;

@@ -65,6 +65,16 @@ class KotaController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'kode_kota' => 'required:kotas',
+                'nama_kota' => 'required:kotas',
+            ],
+            [
+                'kode_kota.required' => 'Kode kota harus diisi',
+                'nama_kota.required' => 'kota harus diisi'
+            ]
+            );
         $kota = Kota::findOrFail($id);
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;

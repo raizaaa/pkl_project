@@ -92,7 +92,6 @@ class ProvinsiController extends Controller
     public function edit($id)
     {
         //
-
         $provinsi = Provinsi::findOrFail($id);
         return view('admin.provinsi.edit',compact('provinsi'));
     }
@@ -107,6 +106,17 @@ class ProvinsiController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate(
+            [
+                'kode_provinsi' => 'max:5|required:provinsis',
+                'nama_provinsi' => 'required:provinsis',
+            ],
+            [
+                'kode_provinsi.max' => 'Kode provinsi tidak bisa lebih dari 5 karakter',
+                'kode_provinsi.required' => 'Kode provinsi harus diisi',
+                'nama_provinsi.required' => 'provinsi harus diisi',
+            ]
+            );
         $provinsi = Provinsi::findOrFail($id);
         $provinsi->kode_provinsi = $request->kode_provinsi;
         $provinsi->nama_provinsi = $request->nama_provinsi;

@@ -23,7 +23,10 @@
                         </div>
                         <div class="form-group">
                             <label for="">Rw</label>
-                            <input type="text" name="no_rw" class="form-control" value="{{$rw->no_rw}}" required>  
+                            <input type="text" name="no_rw" class="form-control" value="{{$rw->no_rw}}">
+                            @if($errors->has('no_rw'))
+                                <span class="text-danger">{{$errors->first('no_rw')}}</span>
+                            @endif  
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" onclick="return confirm('Apakah anda yakin?')">Simpan</button>

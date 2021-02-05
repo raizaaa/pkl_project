@@ -65,6 +65,16 @@ class KecamatanController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'kode_kecamatan' => 'required:kecamatans',
+                'nama_kecamatan' => 'required:kecamatans',
+            ],
+            [
+                'kode_kecamatan.required' => 'Kode kecamatan harus diisi',
+                'nama_kecamatan.required' => 'kecamatan harus diisi',
+            ]
+            );
         $kecamatan = Kecamatan::findOrFail($id);
         $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;

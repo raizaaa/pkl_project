@@ -18,19 +18,31 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Positif</label>
-                                <input type="text" class="form-control" name="jumlah_positif" value="@if(isset($tracking)){{$tracking->jumlah_positif}}@endif" required>
+                                <input type="text" class="form-control" name="jumlah_positif" value="@if(isset($tracking)){{$tracking->jumlah_positif}}@endif">
+                                @if($errors->has('jumlah_positif'))
+                                    <span class="text-danger">{{$errors->first('jumlah_positif')}}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Sembuh</label>
-                                <input type="text" class="form-control" name="jumlah_sembuh" value="@if(isset($tracking)){{$tracking->jumlah_sembuh}}@endif" required>
+                                <input type="text" class="form-control" name="jumlah_sembuh" value="@if(isset($tracking)){{$tracking->jumlah_sembuh}}@endif">
+                            @if($errors->has('jumlah_sembuh'))
+                                <span class="text-danger">{{$errors->first('jumlah_sembuh')}}</span>
+                            @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Meninggal</label>
-                                <input type="text" class="form-control" name="jumlah_meninggal" value="@if(isset($tracking)){{$tracking->jumlah_meninggal}}@endif" required>
+                                <input type="text" class="form-control" name="jumlah_meninggal" value="@if(isset($tracking)){{$tracking->jumlah_meninggal}}@endif">
+                            @if($errors->has('jumlah_meninggal'))
+                                <span class="text-danger">{{$errors->first('jumlah_meninggal')}}</span>
+                            @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal</label>
-                                <input type="date" class="form-control" name="tanggal" value="@if(isset($tracking)){{$tracking->tanggal}}@endif" required>
+                                <input type="date" class="form-control" name="tanggal" value="@if(isset($tracking)){{$tracking->tanggal}}@endif">
+                            @if($errors->has('tanggal'))
+                                <span class="text-danger">{{$errors->first('kode_kota')}}</span>
+                            @endif
                             </div>
                         </div>
                     </div>

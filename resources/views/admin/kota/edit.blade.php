@@ -23,11 +23,17 @@
                         </div>
                         <div class="form-group">
                             <label for="">Kode Kota</label>
-                            <input type="text" name="kode_kota" class="form-control" value="{{$kota->kode_kota}}" required>
+                            <input type="text" name="kode_kota" class="form-control" value="{{$kota->kode_kota}}">
+                            @if($errors->has('kode_kota'))
+                                <span class="text-danger">{{$errors->first('kode_kota')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Kota</label>
-                            <input type="text" name="nama_kota" class="form-control" value="{{$kota->nama_kota}}" required>  
+                            <input type="text" name="nama_kota" class="form-control" value="{{$kota->nama_kota}}">
+                            @if($errors->has('nama_kota'))
+                                <span class="text-danger">{{$errors->first('nama_kota')}}</span>
+                            @endif  
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" onclick="return confirm('Apakah anda yakin?')">Simpan</button>

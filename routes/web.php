@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware'=>['auth']], 
     function() {
         Route::get('/',function(){
-            return view('layouts.master');
+            return view('index');
         });
         Route::resource('provinsi','ProvinsiController');
         Route::resource('kota','KotaController');
