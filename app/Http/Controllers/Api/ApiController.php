@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Provinsi;
 use App\Models\Rw;
 use App\Models\Tracking;
@@ -16,9 +17,9 @@ class ApiController extends Controller
     {
         $track = DB::table('trackings')
                 ->select(
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
@@ -38,9 +39,9 @@ class ApiController extends Controller
         $provinsi = DB::table('trackings')
                 ->select(DB::raw('provinsis.nama_provinsi'), 
                 DB::raw('provinsis.kode_provinsi'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
@@ -51,9 +52,9 @@ class ApiController extends Controller
         $harini = DB::table('trackings')
                 ->select(DB::raw('provinsis.nama_provinsi'), 
                 DB::raw('provinsis.kode_provinsi'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
@@ -75,9 +76,9 @@ class ApiController extends Controller
         $kota = DB::table('trackings')
                 ->select(DB::raw('kotas.nama_kota'), 
                 DB::raw('kotas.kode_kota'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
@@ -87,9 +88,9 @@ class ApiController extends Controller
         $harini = DB::table('trackings')
                 ->select(DB::raw('kotas.nama_kota'), 
                 DB::raw('kotas.kode_kota'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
@@ -110,9 +111,9 @@ class ApiController extends Controller
         $kecamatan = DB::table('trackings')
                 ->select(DB::raw('kecamatans.nama_kecamatan'), 
                 DB::raw('kecamatans.kode_kecamatan'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
@@ -121,9 +122,9 @@ class ApiController extends Controller
         $harini = DB::table('trackings')
                 ->select(DB::raw('kecamatans.nama_kecamatan'), 
                 DB::raw('kecamatans.kode_kecamatan'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
@@ -142,18 +143,18 @@ class ApiController extends Controller
     {
         $kelurahan = DB::table('trackings')
                 ->select(DB::raw('kelurahans.nama_kelurahan'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
     			->groupBy('kelurahans.nama_kelurahan')
                 ->get();
         $harini = DB::table('trackings')
                 ->select(DB::raw('kelurahans.nama_kelurahan'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->join('kelurahans', 'kelurahans.id', '=', 'rws.id_kelurahan')
                 ->wheredate('trackings.tanggal', date('Y-m-d'))
@@ -171,17 +172,17 @@ class ApiController extends Controller
     {
         $rw = DB::table('trackings')
                 ->select(DB::raw('rws.no_rw'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
     			->groupBy('rws.no_rw')
                 ->get();
         $harini = DB::table('trackings')
                 ->select(DB::raw('rws.no_rw'), 
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
     			->join('rws', 'rws.id', '=', 'trackings.id_rw')
                 ->wheredate('trackings.tanggal', date('Y-m-d'))
                 ->get();
@@ -199,13 +200,13 @@ class ApiController extends Controller
     {
         $indonesia = DB::table('trackings')
                 ->select(
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'), 
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'), 
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_positif) as positif'), 
+                DB::raw('SUM(jumlah_sembuh) as sembuh'), 
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
                 ->get();
         $response = [
             'succes' => true,
-            'data' => [$indonesia],
+            'data' => ['name' => 'indonesia', 'value' => $indonesia],
             'message' => 'berhasil'
         ];
     	return response()->json($response, 200);
@@ -215,11 +216,11 @@ class ApiController extends Controller
     {
         $positif = DB::table('trackings')
                 ->select(
-                DB::raw('SUM(jumlah_positif) as jumlah_positif'))
+                DB::raw('SUM(jumlah_positif) as positif'))
                 ->get();
         $response = [
             'succes' => true,
-            'data' => [$positif],
+            'data' => ['name' => 'total positif', 'value' => $positif],
             'message' => 'berhasil'
         ];
     	return response()->json($response, 200);
@@ -229,11 +230,11 @@ class ApiController extends Controller
     {
         $sembuh = DB::table('trackings')
                 ->select(
-                DB::raw('SUM(jumlah_sembuh) as jumlah_sembuh'))
+                DB::raw('SUM(jumlah_sembuh) as sembuh'))
                 ->get();
         $response = [
             'succes' => true,
-            'data' => [$sembuh],
+            'data' => ['name' => 'total sembuh', 'value' => $sembuh],
             'message' => 'berhasil'
         ];
     	return response()->json($response, 200);
@@ -243,18 +244,23 @@ class ApiController extends Controller
     {
         $meninggal = DB::table('trackings')
                 ->select(
-                DB::raw('SUM(jumlah_meninggal) as jumlah_meninggal'))
+                DB::raw('SUM(jumlah_meninggal) as meninggal'))
                 ->get();
         $response = [
             'succes' => true,
-            'data' => [$meninggal],
+            'data' => ['name' => 'total meninggal', 'value' => $meninggal],
             'message' => 'berhasil'
         ];
     	return response()->json($response, 200);
     }
 
-
-
-
-    // berdasarkan id
+    public function global(){
+        $url = Http::get('https://api.kawalcorona.com/')->json();
+        $data = [
+            'success' => true,
+            'data' => $url,
+            'message' => 'Data Global berhasil ditampilkan!'
+        ];
+        return response()->json($data, 200);
+        }
 }

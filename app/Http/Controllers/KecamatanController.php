@@ -29,11 +29,12 @@ class KecamatanController extends Controller
     {
         $request->validate(
             [
-                'kode_kecamatan' => 'required|unique:kecamatans',
+                'kode_kecamatan' => 'required|max:8|unique:kecamatans',
                 'nama_kecamatan' => 'required|unique:kecamatans',
             ],
             [
                 'kode_kecamatan.required' => 'Kode kecamatan harus diisi',
+                'kode_kecamatan.max' => 'Kode kecamatan max 8',
                 'kode_kecamatan.unique' => 'Kode kecamatan telah terdaftar',
                 'nama_kecamatan.required' => 'kecamatan harus diisi',
                 'nama_kecamatan.unique' => 'kecamatan telah terdaftar'
@@ -67,11 +68,12 @@ class KecamatanController extends Controller
     {
         $request->validate(
             [
-                'kode_kecamatan' => 'required:kecamatans',
+                'kode_kecamatan' => 'required|max:8:kecamatans',
                 'nama_kecamatan' => 'required:kecamatans',
             ],
             [
                 'kode_kecamatan.required' => 'Kode kecamatan harus diisi',
+                'kode_kecamatan.max' => 'Kode kecamatan max 8 karakter',
                 'nama_kecamatan.required' => 'kecamatan harus diisi',
             ]
             );

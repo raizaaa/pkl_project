@@ -35,6 +35,7 @@ Route::get('/indonesia',[ApiController::class,'indonesia']);
 Route::get('/positif',[ApiController::class,'positif']);
 Route::get('/sembuh',[ApiController::class,'sembuh']);
 Route::get('/meninggal',[ApiController::class,'meninggal']);
+Route::get('/global',[ApiController::class,'global']);
 
 
 // berdasarkan id

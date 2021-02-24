@@ -53,12 +53,13 @@ class ProvinsiController extends Controller
         //
         $request->validate(
             [
-                'kode_provinsi' => 'required|unique:provinsis',
+                'kode_provinsi' => 'required|max:5|unique:provinsis',
                 'nama_provinsi' => 'required|unique:provinsis',
             ],
             [
                 'kode_provinsi.required' => 'Kode provinsi harus diisi',
                 'kode_provinsi.unique' => 'Kode provinsi telah terdaftar',
+                'kode_provinsi.max' => 'Kode provinsi tidak boleh lebih dari 5 karakter',
                 'nama_provinsi.required' => 'Provinsi harus diisi',
                 'nama_provinsi.unique' => 'Provinsi telah terdaftar'
             ]

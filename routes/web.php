@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,5 +38,14 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth']],
         Route::resource('tracking','TrackingController');
     });
 
+// // ROUTE FRONTEND
+// Route::get('frontend',function(){
+//     return view('frontend.index');
+// });
+
+Route::get('frontendcorona',function(){
+    return view('frontend.indkc');
+});
 
 
+Route::resource('frontendcovid', 'FrontendController');

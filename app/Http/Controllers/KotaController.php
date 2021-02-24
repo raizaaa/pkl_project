@@ -29,11 +29,12 @@ class KotaController extends Controller
     {
         $request->validate(
             [
-                'kode_kota' => 'required|unique:kotas',
+                'kode_kota' => 'required|max:5|unique:kotas',
                 'nama_kota' => 'required|unique:kotas',
             ],
             [
                 'kode_kota.required' => 'Kode kota harus diisi',
+                'kode_kota.max' => 'Kode max 5 karakter',
                 'kode_kota.unique' => 'Kode kota telah terdaftar',
                 'nama_kota.required' => 'kota harus diisi',
                 'nama_kota.unique' => 'kota telah terdaftar'
@@ -67,12 +68,13 @@ class KotaController extends Controller
     {
         $request->validate(
             [
-                'kode_kota' => 'required:kotas',
+                'kode_kota' => 'required|max:5:kotas',
                 'nama_kota' => 'required:kotas',
             ],
             [
                 'kode_kota.required' => 'Kode kota harus diisi',
-                'nama_kota.required' => 'kota harus diisi'
+                'kode_kota.max' => 'Kode max 5 karakter',
+                'nama_kota.required' => 'kota harus diisi',
             ]
             );
         $kota = Kota::findOrFail($id);

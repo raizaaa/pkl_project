@@ -51,15 +51,15 @@
                                         <form action="{{route('tracking.destroy',$data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('tracking.show',$data->id)}}" class="btn btn-primary">
-                                        <img src="https://img.icons8.com/material-outlined/15/000000/visible--v2.png"/>
-                                        </a> |
+                                        <!-- <a href="{{route('tracking.show',$data->id)}}" class="btn btn-primary">
+                                        <img width="15" src="https://img.icons8.com/material-outlined/15/000000/visible--v2.png"/>
+                                        </a> |   -->
                                         <a href="{{route('tracking.edit',$data->id)}}" class="btn btn-warning">
-                                        <img src="https://img.icons8.com/android/15/000000/edit.png"/>
+                                        <img width="15" src="https://img.icons8.com/android/15/000000/edit.png"/>
                                         </a> |
                                         <button type="submit" class="btn btn-danger" onclick="return confirm
                                         ('Apakah anda yakin?')">
-                                        <img src="https://img.icons8.com/metro/15/000000/trash.png"/>
+                                        <img width="15" src="https://img.icons8.com/metro/15/000000/trash.png"/>
                                         </button>
                                         </form>
                                     </td>

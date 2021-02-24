@@ -6,6 +6,14 @@
       <span class="brand-text font-weight-light"><b>Tracking Covid</b></span>
     </a>
     </center>
+    <!-- <center>
+    <a href="#" class="brand-link">
+      <span class="brand-text font-weight-light">
+        <img src="{{asset('assets/img/user.png')}}" width="30" height="30" alt="">&nbsp&nbsp
+      <p><b>{{ Auth::user()->name }}</b></p>
+      <span>
+    </a>
+    </center> -->
     <div class="sidebar">
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -61,18 +69,7 @@
               </p>
             </a>
           </li>
-          <li>
-            <a class="dropdown-item" href="{{ route('logout') }}"
-        onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-        <img src="https://img.icons8.com/nolan/25/logout-rounded-left.png"/>
-        {{ __('Logout') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-        </form>
-          </li>
+          
       </nav>
       <!-- /.sidebar-menu -->
     </div>
