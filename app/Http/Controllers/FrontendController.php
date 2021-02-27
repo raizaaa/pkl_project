@@ -17,21 +17,6 @@ class FrontendController extends Controller
     
     public function index()
     {       
-        $positif = DB::table('rws')
-                ->select('trackings.jumlah_positif',
-                'trackings.jumlah_sembuh', 'trackings.jumlah_meninggal')
-                ->join('trackings','rws.id','=','trackings.id_rw')
-                ->sum('trackings.jumlah_positif'); 
-        $sembuh = DB::table('rws')
-                ->select('trackings.jumlah_positif',
-                'trackings.jumlah_sembuh','trackings.jumlah_meninggal')
-                ->join('trackings','rws.id','=','trackings.id_rw')
-                ->sum('trackings.jumlah_sembuh');
-        $meninggal = DB::table('rws')
-                ->select('trackings.jumlah_positif',
-                'trackings.jumlah_sembuh','trackings.jumlah_meninggal')
-                ->join('trackings','rws.id','=','trackings.id_rw')
-                ->sum('trackings.jumlah_meninggal');
 
         $output = DB::table('provinsis')
                 ->join('kotas','kotas.id_provinsi','=','provinsis.id')
