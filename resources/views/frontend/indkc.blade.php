@@ -206,6 +206,49 @@
 		<!-- END provinsi -->
 
 				
+  <!-- Global -->
+  <section id="counts_global">
+            <div class="container">
+              <div class="section-title">
+                <h2>Global</h2>
+                <p>Data kasus Covid-19 Global</p>
+              </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                          <div style="height:600px;overflow:auto;margin-right:15px;">
+                            <div class="table-responsive">
+                                <table class="table table-bordered ">
+                                    <thead class="card-header text-center">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Negara</th>
+                                            <th>Positif</th>
+                                            <th>Sembuh</th>
+                                            <th>Meninggal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php $no=1; @endphp
+                                        @foreach ($dunia as $data)
+                                            <tr>
+                                            <td> {{$no++}}</td>
+                                            <td> {{ $data['attributes']['Country_Region']}} </td>
+                                            <td> {{$data['attributes']['Confirmed']}} </td>
+                                            <td> {{$data['attributes']['Recovered']}} </td>
+                                            <td> {{$data['attributes']['Deaths']}} </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  <!-- End Global -->
+
 		<!-- prokes -->
 		<section id="prokes">
 			<div class="container">

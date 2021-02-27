@@ -51,6 +51,7 @@
           </li>
           <li><a href="#covid">About</a></li>
           <li><a href="#prokes">Prokes</a></li>
+          <li><a href="#faq">F.A.Q</a></li>
           <li><a href="#contact">Contact</a></li>
 
         </ul>
@@ -160,49 +161,6 @@
             </div>
         </section>
   <!-- End Indonesia -->
-
-  <!-- Global -->
-  <section id="counts_global">
-            <div class="container">
-              <div class="section-title">
-                <h2>Global</h2>
-                <p>Data kasus Covid-19 Global</p>
-              </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <div class="card-body">
-                          <div style="height:600px;overflow:auto;margin-right:15px;">
-                            <div class="table-responsive">
-                                <table class="table table-bordered ">
-                                    <thead class="card-header text-center">
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Negara</th>
-                                            <th>Positif</th>
-                                            <th>Sembuh</th>
-                                            <th>Meninggal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php $no=1; @endphp
-                                        @foreach ($dunia as $data)
-                                            <tr>
-                                            <td> {{$no++}}</td>
-                                            <td> {{ $data['attributes']['Country_Region']}} </td>
-                                            <td> {{$data['attributes']['Confirmed']}} </td>
-                                            <td> {{$data['attributes']['Recovered']}} </td>
-                                            <td> {{$data['attributes']['Deaths']}} </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-  <!-- End Global -->
 
     <!-- ======= About Section ======= -->
     <section id="covid" class="about">
@@ -429,7 +387,7 @@
     <!-- End Team Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <!-- <section id="faq" class="faq">
+    <section id="faq" class="faq">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -447,9 +405,8 @@
               Untuk orang yang terindikasi virus Corona akan mengalami gejala seperti batuk, flu, sakit tenggorokan, sesak napas, lesu dan letih bahkan pada beberapa kasus pasien akan mengalami pneumonia atau masalah pada paru-paru.
             </p>
           </div>
-        </div> -->
-        <!-- End F.A.Q Item-->
-<!-- 
+        </div>
+
         <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
           <div class="col-lg-5">
             <i class="bx bx-help-circle"></i>
@@ -460,9 +417,8 @@
               Kampanye 3M : Memakai Masker, Menjaga Jarak Aman, dan Mencuci Tangan, merupakan satu paket protokol kesehatan yang sangat diperlukan oleh masyarakat untuk mencegah penularan COVID-19. Himbauan ini perlu dipatuhi dan dijalankan secara disiplin, mengingat langkah ini adalah rekomendasi dari para ahli dan dokter.
             </p>
           </div>
-        </div> -->
-        <!-- End F.A.Q Item-->
-<!-- 
+        </div>
+
         <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
           <div class="col-lg-5">
             <i class="bx bx-help-circle"></i>
@@ -473,9 +429,8 @@
               Hingga artikel ini diterbitkan, dalam situs resminya WHO menyebut bahwa virus Corona umumnya hanya menular melalui kontak dengan droplet dari saluran pernapasan orang yang terinfeksi, bukan melalui udara.
             </p>
           </div>
-        </div> -->
-        <!-- End F.A.Q Item-->
-<!-- 
+        </div>
+
         <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
           <div class="col-lg-5">
             <i class="bx bx-help-circle"></i>
@@ -486,10 +441,9 @@
               Menggunakan masker pada saat pandemi COVID-19 merupakan hal yang wajib dipakai terutama ketika bepergian keluar rumah. Masker menjadi hal yang esensial karena mampu menangkal virus ataupun bakteri yang akan masuk ke mulut ataupun hidung seseorang.
             </p>
           </div>
-        </div> -->
-        <!-- End F.A.Q Item-->
+        </div>
 
-        <!-- <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
           <div class="col-lg-5">
             <i class="bx bx-help-circle"></i>
             <h4>Organ tubuh apa saja yang bisa diserang oleh virus COVID-19?</h4>
@@ -499,8 +453,7 @@
               Virus yang menyebabkan Covid-19 atau SARS-CoV-2 akan menyerang seluruh bagian paru-paru orang yang tertular.
             </p>
           </div>
-        </div> -->
-        <!-- End F.A.Q Item-->
+        </div>
 
       </div>
     </section>

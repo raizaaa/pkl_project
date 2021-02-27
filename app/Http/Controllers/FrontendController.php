@@ -46,8 +46,8 @@ class FrontendController extends Controller
                 ->groupBy('nama_provinsi')->orderBy('nama_provinsi','ASC')
                 ->get();
         
-        $dtDunia = file_get_contents("https://api.kawalcorona.com/");
-        $dunia = json_decode($dtDunia, TRUE);
+        // $dtDunia = file_get_contents("https://api.kawalcorona.com/");
+        // $dunia = json_decode($dtDunia, TRUE);
 
         $tanggal = Carbon::now()->format('D d-M-Y');
 
@@ -56,4 +56,3 @@ class FrontendController extends Controller
     }
 
 }
-   
